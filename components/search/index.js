@@ -1,4 +1,4 @@
-const Search = () => {
+const Search = ({searchFor}) => {
   return (
     <div className="m-4 bg-white shadow p-4 flex">
         <span className="w-auto flex justify-end items-center text-gray-500 p-2">
@@ -18,7 +18,11 @@ const Search = () => {
                     </svg>
                 </button>
         </span>
-        <input className="w-full rounded p-2" type="search" placeholder="Search for any job, title, keywords or company" />
+        <input 
+        className="w-full rounded p-2" 
+        type="search" 
+        placeholder="Search for any job, title, keywords or company" 
+        onChange={(e) => searchFor(e.target.value)} />
     </div>
   );
 };

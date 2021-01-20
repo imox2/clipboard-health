@@ -4,16 +4,25 @@ import axios from 'axios';
 import React, {useState, useEffect, Fragment} from 'react';
 import { computeTotalJobs } from '../../utils/apiHelper';
 
-export default function Jobs() {
+export default function Jobs({ searchText }) {
     const [jobs, setJobs] = useState();
 
-    useEffect(async () => {
-    const result = await axios(
-        'api/jobs',
-    );
-    setJobs(result.data);
-    console.log("result.data:",result.data);
+    const getJobsData = async () => {
+      const result = await axios(
+         `api/jobs?search=${searchText}`,
+      );
+      console.log("getJobsData");
+      setJobs(result.data);
+    };
+
+    useEffect(() => {
+    getJobsData();
     }, []);
+
+    useEffect(() => {
+      setJobs(null);
+      getJobsData();
+  }, [searchText]);
 
     return (
         <div className="m-4 flex flex-row lg:space-x-4">
