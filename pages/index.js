@@ -1,4 +1,8 @@
 import Head from 'next/head'
+import NavBar from "../components/navbar";
+import Search from "../components/search";
+import Jobs from "../components/jobs";
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -7,6 +11,10 @@ export default function Home() {
         <title>Clipboard Health</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar />
+      <Search />
+      <Jobs />
+      <Footer />
     </div>
   )
 }
