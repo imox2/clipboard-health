@@ -10,7 +10,7 @@ function Widget({title, data}) {
                 <ul className="space-y-2">
                     {data.map((el, index) =>(
                          index<=11 ?
-                        <li>
+                        <li key={index}>
                             {index<=10 ?
                                 <a href="/">
                                 {el['key']} <span className="text-xs text-gray-300">{el['doc_count']}</span>
