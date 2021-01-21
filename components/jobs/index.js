@@ -82,7 +82,8 @@ export default function Jobs({ searchText }) {
   {sortMenus ? (
                 Object.keys(sortMenus).map((sortMenu, index) => (
                     <div key={index} 
-                    onMouseDown={() => selectSort(sortMenu)}>
+                    onMouseDown={() => selectSort(sortMenu)}
+                    className="cursor-pointer">
                     {sortMenu}
                     <span className="inline-block">
                     {sortMenus[sortMenu] === "desc" && <svg viewBox="0 0 24 24" fill="black" width="16px" height="16px">

@@ -14,7 +14,7 @@ function Widget({title, data, changeFilterInfo}) {
                          index<=11 ?
                         <li key={index}>
                             {index<=10 ?
-                                 <label className="inline-flex items-center mt-3">
+                                 <label className="inline-flex items-center mt-3 cursor-pointer">
                 <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
                 onChange={(e) => changeFilterInfo(event.target.checked, el['key'])}/>
                 <span className="ml-2 text-gray-700">{el['key']}</span>
