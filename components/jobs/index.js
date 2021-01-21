@@ -10,8 +10,8 @@ export default function Jobs({ searchText }) {
     const [sortMenus, setSortMenus] = useState({
       'Location': '',
       'Role': '',
-      // 'Department': '',
-      // 'Education': '',
+      'Department': '',
+      'Education': '',
       'Experience': '',
     });
 
@@ -49,7 +49,7 @@ export default function Jobs({ searchText }) {
        const sortDataCopy = { ...sortMenus };
        Object.keys(sortDataCopy).forEach(key => {
         if(sortDataCopy[key]) {
-          url = url + `&${key}=${sortDataCopy[key]}`
+          url = url + `&${key.toLowerCase()}=${sortDataCopy[key]}`
         }
        });
       const result = await axios(
@@ -66,7 +66,8 @@ export default function Jobs({ searchText }) {
     useEffect(() => {
       setJobs(null);
       getJobsData();
-  }, [searchText,filters,sortMenus.Location, sortMenus.Role, sortMenus.Experience]);
+  }, [searchText,filters,sortMenus.Location, sortMenus.Role, sortMenus.Experience,
+      sortMenus.Department,sortMenus.Education]);
 
     return (
         <div className="m-4 flex flex-row lg:space-x-4">
