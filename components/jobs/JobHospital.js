@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import Job from "./Job";
+import Job from "./job";
 
 export default function JobHospital({job}) {
     const [isOpened, setIsOpened] = useState(false);
