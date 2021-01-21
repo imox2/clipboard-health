@@ -1,6 +1,6 @@
 function Navbar() {
     return (
-        <div className="flex bg-white h-16 content-center">
+        <div className="flex bg-white  content-center">
             <div className="flex flex-grow lg:w-1/4">
                 <div className="p-5 lg:hidden">
                     <div className="w-6">

@@ -20,7 +20,7 @@ function Widget({title, data, changeFilterInfo}) {
                 <span className="ml-2 text-gray-700">{el['key']}</span>
                 <span className="text-xs text-gray-300">{el['doc_count']}</span>
             </label>:
-                            <a class="cursor-pointer text-blue-600"
+                            <a className="cursor-pointer text-blue-600"
                             onClick={() => setShowModal(true)}>
                                 Show More
                             </a>

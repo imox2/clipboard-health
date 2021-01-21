@@ -76,8 +76,8 @@ export default function Jobs({ searchText }) {
             </div>
             <div className="w-full bg-white  lg:border lg:border-gray-200">
             <div className="grid grid-cols-2">
-  <div className="space-x-3 p-3.5 items-center">{jobs ? computeTotalJobs(jobs) + ' Job posting' : ''}</div>
-  <div className="flex flex-row space-x-6 p-3.5 items-center">
+  <div className="space-x-3 p-3.5 items-center font-bold">{jobs ? computeTotalJobs(jobs) + ' Job posting' : ''}</div>
+  <div className="flex flex-row space-x-6 p-3.5 items-center invisible lg:visible sr-only sm:not-sr-only">
   <div>Sort by</div>
   {sortMenus ? (
                 Object.keys(sortMenus).map((sortMenu, index) => (
