@@ -7,6 +7,13 @@ import { computeTotalJobs } from '../../utils/apiHelper';
 export default function Jobs({ searchText }) {
     const [jobs, setJobs] = useState();
     const [filters, setFilters] = useState();
+    const [sortMenus, setSortMenus] = useState({
+      'Location': false,
+      'Role': false,
+      'Department': false,
+      'Education': false,
+      'Experience': false,
+    });
 
     const selectFilters = (checked, filter) => {
       const filtersCopy = !filters ? [] : JSON.parse(JSON.stringify(filters));
@@ -21,7 +28,6 @@ export default function Jobs({ searchText }) {
       }
       setFilters(filtersCopy);
       console.log("filtersCopy:",filtersCopy);
-      // getJobsData();
     };
 
     const getJobsData = async () => {
@@ -56,11 +62,24 @@ export default function Jobs({ searchText }) {
   <div className="space-x-3 p-3.5 items-center">{jobs ? computeTotalJobs(jobs) + ' Job posting' : ''}</div>
   <div className="flex flex-row space-x-3 p-3.5 items-center">
   <div>Sort by</div>
-  <div>Location</div>
-  <div>Role</div>
-  <div>Department</div>
-  <div>Education</div>
-  <div>Experience</div>
+  {sortMenus ? (
+                Object.keys(sortMenus).map((sortMenu, index) => (
+                    <div key={index}>
+                    {sortMenu}
+                    <span className="inline-block">
+                    {sortMenus[sortMenu] ?
+                      <svg viewBox="0 0 24 24" fill="black" width="16px" height="16px">
+    <rect fill="none" height="24" width="24" />
+    <path d="M19,15l-1.41-1.41L13,18.17V2H11v16.17l-4.59-4.59L5,15l7,7L19,15z" />
+  </svg>:<svg viewBox="0 0 24 24" fill="black" width="16px" height="16px">
+    <rect fill="none" height="24" width="24" />
+    <path d="M5,9l1.41,1.41L11,5.83V22H13V5.83l4.59,4.59L19,9l-7-7L5,9z" />
+  </svg>}
+                    
+    </span>
+                    </div>
+                ))
+            ):''}
 </div>
 </div>
                 <ListItems jobs={jobs}/>
