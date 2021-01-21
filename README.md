@@ -9,7 +9,7 @@
 1. clone the repo
 2. `npm i ` to install the packages
 3. `npm run dev` to run the app @ localhost:3000
-
+4. `npm run test` to run the test cases
 
 ## Implementation Info
 1. **Search** - search is done by stringifying job items and finding the search text on the stringifed object

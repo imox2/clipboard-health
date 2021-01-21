@@ -13,7 +13,6 @@ export default async function getJobs(req, res) {
   const { search, filters, location, role, experience, department, education  } = req.query;
   let matchedJobs = JSON.parse(JSON.stringify(jobs));
   if (search && search !== "null") {
-  	console.log("search for...",search);
   	matchedJobs = searchJobs(matchedJobs, search);
   }
   if(filters) {
@@ -22,6 +21,5 @@ export default async function getJobs(req, res) {
   if ([role, experience, location, department, education].some((sortBy) => sortBy !== "null" && sortBy !== undefined)) {
     matchedJobs = sortJobs(matchedJobs, { location, role, experience, department, education });
   }
-  // console.log("matchedJobs:",matchedJobs);
   res.json(matchedJobs);
 }

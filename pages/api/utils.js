@@ -47,14 +47,12 @@ const searchTextInObject = (itemsArray,searchText) => {
 
 
 const sortJobs = (jobs, sortBy) => {
-  console.log("sortBy:",sortBy);
   for (var propName in sortBy) {
     if (sortBy[propName] === null || sortBy[propName] === undefined) {
       delete sortBy[propName];
     }
   }
 
-  console.log("sortBy:",sortBy);
 
   const sortingMap = {
     'location': {key: 'state', type: 'string'},

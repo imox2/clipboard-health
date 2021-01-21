@@ -50,7 +50,6 @@ export default function Filters({selectFilters}) {
         'api/filters',
     );
     setFilters(result.data);
-    console.log("result.data:",result.data);
     }, []);
     return (
    

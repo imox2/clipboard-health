@@ -16,19 +16,16 @@ export default function Jobs({ searchText }) {
     });
 
     const selectSort = (key) => {
-      console.log("selectSort:",key);
     const sortDataCopy = { ...sortMenus };
     const value = sortDataCopy[key];
     if (value === "asc") sortDataCopy[key] = "desc";
     if (value === "desc") sortDataCopy[key] = '';
     if (value === '') sortDataCopy[key] = "asc";
     setSortMenus(sortDataCopy);
-    console.log("sortDataCopy:",sortDataCopy);
   };
 
     const selectFilters = (checked, filter) => {
       const filtersCopy = !filters ? [] : JSON.parse(JSON.stringify(filters));
-      console.log("filtersCopy:",filtersCopy);
       if(checked && filtersCopy.indexOf(filter) == -1) {
         filtersCopy.push(filter);
       } else {
@@ -42,7 +39,6 @@ export default function Jobs({ searchText }) {
 
     const getJobsData = async () => {
       let url = `api/jobs?search=${searchText}`;
-      console.log("filters:",filters);
       if(filters && filters.length > 0) {
         url = url + `&filters=${filters.toString()}`
       }
@@ -55,7 +51,6 @@ export default function Jobs({ searchText }) {
       const result = await axios(
          url
       );
-      console.log("getJobsData:",url);
       setJobs(result.data);
     };
 
