@@ -1,7 +1,7 @@
 import jobs from '../../data/jobs'
 import { searchJobs, filterJobs, sortJobs } from './utils'
 
-export default async (req, res) => {
+export default async function getJobs(req, res) {
   res.statusCode = 200
   // @todo: implement filters and search
   // @todo: implement automated tests
